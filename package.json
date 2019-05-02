@@ -1,0 +1,14 @@
+{
+  "name": "gridsome-remark-encrypt",
+  "version": "0.1.0",
+  "description": "A plug-in for encrypting document contents parsed by `@gridsome/transformer-remark`",
+  "main": "index.js",
+  "license": "ISC",
+  "private": false,
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "moment": "^2.24.0",
+    "remark-html": "^9.0.0",
+    "unified": "^7.1.0"
+  }
+}
