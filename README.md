@@ -51,6 +51,23 @@ There are a few things to note when using this plug-in:
         // Output like `<div v-html="decryptedContent"></div>`
 3. **This isn't terribly secure.** Don't count on this to encrypt information that could do harm if it were decrypted (it's particularly straight-forward to brute-force, since an attacker would merely have to grab the encrypted string and then brute-force it locally at their leisure).
 
+If you need a boolean to detect if your data is encrypted, try adding this to your `gridsome.server.js` file:
+
+    const typeName = 'YOUR_CONTENT_TYPE_HERE'
+    const compileDate = new Date()
+    // Extend our `typeName` type with a field that checks if a post is encrypted
+    api.loadSource(store => {
+        const allPosts = store.getContentType(typeName)
+        allPosts.addSchemaField('isEncrypted', ({ graphql }) => ({
+            type: graphql.GraphQLBoolean,
+            resolve (node) {
+                // We can't check `node.content.startsWith('ENCRYPTED:')` because the content may
+                // not have been encrypted yet
+                return !!node.password && compileDate < new Date(node.date)
+            }
+        }))
+    })
+
 ## Options
 
 #### keyName
