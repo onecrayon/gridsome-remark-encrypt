@@ -1,11 +1,16 @@
 {
   "name": "gridsome-remark-encrypt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A plug-in for encrypting document contents parsed by `@gridsome/transformer-remark`",
   "main": "index.js",
   "homepage": "https://github.com/onecrayon/gridsome-remark-encrypt#readme",
   "repository": "https://github.com/onecrayon/gridsome-remark-encrypt",
   "license": "ISC",
+  "keywords": [
+    "gridsome",
+    "gridsome-plugin",
+    "remark"
+  ],
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "moment": "^2.24.0",
